@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>README Viewer</title>
+  <!-- Include Marked library from CDN for markdown conversion -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 4px;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="markdown-content">
+    Loading README.md...
+  </div>
+
+  <script>
+    // Fetch the README.md file and convert its Markdown content to HTML using Marked
+    fetch('README.md')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.text();
+      })
+      .then(markdown => {
+        const html = marked.parse(markdown);
+        document.getElementById('markdown-content').innerHTML = html;
+      })
+      .catch(error => {
+        document.getElementById('markdown-content').textContent = 'Error loading README.md: ' + error.message;
+      });
+  </script>
+</body>
+</html>
