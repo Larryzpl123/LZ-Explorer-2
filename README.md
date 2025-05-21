@@ -83,7 +83,7 @@ Follow these detailed steps:
 These steps are inspired by guides like the Instructables WiFi plane project ([Instructables Guide](https://www.instructables.com/WIFI-CONTROLLED-RC-PLANE/)).
 
 ## Code Implementation for Control
-Below is a basic Bluetooth control code for the ESP32, managing the ESC and servos:
+Basic Bluetooth control code managing the ESC and servos:
 
 ```cpp
 #include <BluetoothSerial.h>
